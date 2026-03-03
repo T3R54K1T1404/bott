@@ -124,7 +124,7 @@ function connect(PORT) {
         res.status(200).send(pingResults.join('<br /><br />'));
     });
 
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
         keepAlive();
         console.log('App listened on port', PORT);
     });

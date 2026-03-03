@@ -55,7 +55,7 @@ import {
 
 const { CONNECTING } = ws
 const { chain } = lodash
-const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
+const PORT = process.env.PORT || process.env.SERVER_PORT || 5000
 
 protoType()
 serialize()
@@ -158,6 +158,10 @@ const connectionOptions = {
   connectTimeoutMs: 60000, defaultQueryTimeoutMs: 0, generateHighQualityLinkPreview: true, syncFullHistory: true, markOnlineOnConnect: true
 }
 
+if (!opts['test']) {
+  (await import('./server.js')).default(PORT)
+}
+
 global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 
@@ -211,7 +215,6 @@ async function resetLimit() {
 }
 
 if (!opts['test']) {
-  (await import('./server.js')).default(PORT)
   setInterval(async () => {
     if (global.db.data) await global.db.write().catch(console.error)
     // if (opts['autocleartmp']) try {
