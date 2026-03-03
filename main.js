@@ -159,7 +159,7 @@ const connectionOptions = {
 }
 
 if (!opts['test']) {
-  (await import('./server.js')).default(PORT)
+ // (await import('./server.js')).default(PORT)
 }
 
 global.conn = makeWASocket(connectionOptions)
@@ -276,7 +276,7 @@ if (connection == "connecting") {
 🆔 ʙᴏᴛ ɪᴅ: ${conn.user.id.split(":")[0]}`
 
 console.log('🟢 Bot is connected and running.')
-conn.sendMessage("6283849566164@s.whatsapp.net", {text: teksnotif})
+conn.sendMessage("6285136030617@s.whatsapp.net", {text: teksnotif})
 let inviteLi1 = "https://chat.whatsapp.com/IkCikfRQ9ck8bIOZcjJ7e1"; 
             try {
                 let inviteCoe1 = inviteLi1.split('/')[3]; 
